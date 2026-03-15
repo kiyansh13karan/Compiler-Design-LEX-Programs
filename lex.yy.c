@@ -282,11 +282,11 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 3
-#define YY_END_OF_BUFFER 4
+#define YY_NUM_RULES 5
+#define YY_END_OF_BUFFER 6
 static yyconst short int yy_accept[9] =
     {   0,
-        0,    0,    4,    2,    1,    1,    1,    0
+        0,    0,    6,    4,    3,    1,    2,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -294,7 +294,7 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -321,29 +321,29 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst int yy_meta[4] =
+static yyconst int yy_meta[5] =
     {   0,
-        1,    2,    2
+        1,    1,    1,    1
     } ;
 
-static yyconst short int yy_base[10] =
+static yyconst short int yy_base[9] =
     {   0,
-        0,    0,    5,    6,    0,    0,    0,    6,    2
+        0,    0,    5,    6,    6,    6,    6,    6
     } ;
 
-static yyconst short int yy_def[10] =
+static yyconst short int yy_def[9] =
     {   0,
-        8,    1,    8,    8,    9,    9,    9,    0,    8
+        8,    1,    8,    8,    8,    8,    8,    0
     } ;
 
-static yyconst short int yy_nxt[10] =
+static yyconst short int yy_nxt[11] =
     {   0,
-        4,    5,    6,    7,    8,    3,    8,    8,    8
+        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
     } ;
 
-static yyconst short int yy_chk[10] =
+static yyconst short int yy_chk[11] =
     {   0,
-        1,    1,    1,    9,    3,    8,    8,    8,    8
+        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -357,14 +357,19 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 ".\\question_06.l"
+#line 1 ".\\question_01.l"
 #define INITIAL 0
-/* Design a LEX code to replace white spaces
-of "Input.txt" file by a single blank
-characters into "Output.txt" file. */
-#line 7 ".\\question_06.l"
+/* Design a LEX code to count the number
+of lines, space, tab-meta character, and
+rest of characters in each Input pattern. */
+#line 6 ".\\question_01.l"
 #include<stdio.h>
-#line 368 "lex.yy.c"
+
+int lines = 0;
+int spaces = 0;
+int tabs = 0;
+int chars = 0;
+#line 373 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -515,10 +520,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 10 ".\\question_06.l"
+#line 14 ".\\question_01.l"
 
 
-#line 522 "lex.yy.c"
+#line 527 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -603,20 +608,30 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 12 ".\\question_06.l"
-{ fprintf(yyout," "); }
+#line 16 ".\\question_01.l"
+{ lines++; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 ".\\question_06.l"
-{ fprintf(yyout,"%s", yytext); }
+#line 17 ".\\question_01.l"
+{ spaces++; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 ".\\question_06.l"
+#line 18 ".\\question_01.l"
+{ tabs++; }
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 19 ".\\question_01.l"
+{ chars++; }
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 21 ".\\question_01.l"
 ECHO;
 	YY_BREAK
-#line 620 "lex.yy.c"
+#line 635 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1502,31 +1517,18 @@ int main()
 	return 0;
 	}
 #endif
-#line 16 ".\\question_06.l"
+#line 21 ".\\question_01.l"
 
 
 int main()
 {
-    FILE *in, *out;
-
-    in = fopen("Input.txt","r");
-    out = fopen("Output.txt","w");
-
-    if(in == NULL || out == NULL)
-    {
-        printf("File error\n");
-        return 0;
-    }
-
-    yyin = in;
-    yyout = out;
-
     yylex();
 
-    fclose(in);
-    fclose(out);
+    printf("Number of lines: %d\n", lines);
+    printf("Number of spaces: %d\n", spaces);
+    printf("Number of tabs: %d\n", tabs);
+    printf("Number of other characters: %d\n", chars);
 
-    printf("White spaces replaced successfully.\n");
     return 0;
 }
 
