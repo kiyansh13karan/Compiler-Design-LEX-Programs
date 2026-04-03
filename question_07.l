@@ -1,6 +1,6 @@
 /*
-Design a LEX code to remove the comments from any C program given at run time 
-and store into 'out.c' 
+Design a LEX code to remove the comments from any 
+C program given at run time and store into 'out.c' file. 
 */
 
 
