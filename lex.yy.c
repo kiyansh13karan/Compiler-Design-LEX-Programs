@@ -282,11 +282,13 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 3
-#define YY_END_OF_BUFFER 4
-static yyconst short int yy_accept[9] =
+#define YY_NUM_RULES 17
+#define YY_END_OF_BUFFER 18
+static yyconst short int yy_accept[27] =
     {   0,
-        0,    0,    4,    2,    2,    0,    1,    0
+        0,    0,    0,    0,    0,    0,    0,    0,   18,    4,
+        3,    1,    2,    8,    7,    5,    6,   12,   11,    9,
+       10,   16,   15,   13,   14,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -296,11 +298,11 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    3,
-        1,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    3,    4,    1,    1,
 
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -323,29 +325,35 @@ static yyconst int yy_ec[256] =
 
 static yyconst int yy_meta[5] =
     {   0,
-        1,    1,    1,    2
+        1,    1,    1,    1
     } ;
 
-static yyconst short int yy_base[10] =
+static yyconst short int yy_base[27] =
     {   0,
-        0,    0,    7,    8,    0,    2,    8,    8,    4
+        0,    0,    4,    0,    8,    0,   12,    0,   17,   18,
+       18,   18,   18,   18,   18,   18,   18,   18,   18,   18,
+       18,   18,   18,   18,   18,   18
     } ;
 
-static yyconst short int yy_def[10] =
+static yyconst short int yy_def[27] =
     {   0,
-        8,    1,    8,    8,    9,    9,    8,    0,    8
+       26,    1,   26,    3,   26,    5,   26,    7,   26,   26,
+       26,   26,   26,   26,   26,   26,   26,   26,   26,   26,
+       26,   26,   26,   26,   26,    0
     } ;
 
-static yyconst short int yy_nxt[13] =
+static yyconst short int yy_nxt[23] =
     {   0,
-        4,    4,    5,    4,    6,    7,    8,    3,    8,    8,
-        8,    8
+       10,   11,   12,   13,   14,   15,   16,   17,   18,   19,
+       20,   21,   22,   23,   24,   25,   26,    9,   26,   26,
+       26,   26
     } ;
 
-static yyconst short int yy_chk[13] =
+static yyconst short int yy_chk[23] =
     {   0,
-        1,    1,    1,    1,    9,    6,    3,    8,    8,    8,
-        8,    8
+        1,    1,    1,    1,    3,    3,    3,    3,    5,    5,
+        5,    5,    7,    7,    7,    7,    9,   26,   26,   26,
+       26,   26
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -359,11 +367,18 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 ".\\question_08.l"
+#line 1 ".\\question_09.l"
 #define INITIAL 0
-#line 2 ".\\question_08.l"
+#line 2 ".\\question_09.l"
 #include <stdio.h>
-#line 367 "lex.yy.c"
+/* Define exclusive states for the DFA */
+#define STATE_A 1
+
+#define STATE_B 2
+
+#define STATE_C 3
+
+#line 382 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -514,10 +529,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 5 ".\\question_08.l"
+#line 10 ".\\question_09.l"
 
 
-#line 521 "lex.yy.c"
+    /* Transitions from INITIAL State (Even a, Even b) */
+#line 537 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -568,13 +584,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 9 )
+				if ( yy_current_state >= 27 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 8 );
+		while ( yy_base[yy_current_state] != 18 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -602,21 +618,97 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 ".\\question_08.l"
-{ fprintf(yyout, "%s\n", yytext); }
+#line 13 ".\\question_09.l"
+{ BEGIN STATE_A; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 ".\\question_08.l"
-{ /* Ignore everything else */ }
+#line 14 ".\\question_09.l"
+{ BEGIN STATE_B; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 10 ".\\question_08.l"
+#line 15 ".\\question_09.l"
+{ printf("Result: String ACCEPTED\n\n"); BEGIN INITIAL; }
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 16 ".\\question_09.l"
+{ printf("Invalid character: %s\n", yytext); }
+	YY_BREAK
+/* Transitions from STATE_A (Odd a, Even b) */
+case 5:
+YY_RULE_SETUP
+#line 19 ".\\question_09.l"
+{ BEGIN INITIAL; }
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 20 ".\\question_09.l"
+{ BEGIN STATE_C; }
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 21 ".\\question_09.l"
+{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 22 ".\\question_09.l"
+{ printf("Invalid character: %s\n", yytext); }
+	YY_BREAK
+/* Transitions from STATE_B (Even a, Odd b) */
+case 9:
+YY_RULE_SETUP
+#line 25 ".\\question_09.l"
+{ BEGIN STATE_C; }
+	YY_BREAK
+case 10:
+YY_RULE_SETUP
+#line 26 ".\\question_09.l"
+{ BEGIN INITIAL; }
+	YY_BREAK
+case 11:
+YY_RULE_SETUP
+#line 27 ".\\question_09.l"
+{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
+	YY_BREAK
+case 12:
+YY_RULE_SETUP
+#line 28 ".\\question_09.l"
+{ printf("Invalid character: %s\n", yytext); }
+	YY_BREAK
+/* Transitions from STATE_C (Odd a, Odd b) */
+case 13:
+YY_RULE_SETUP
+#line 31 ".\\question_09.l"
+{ BEGIN STATE_B; }
+	YY_BREAK
+case 14:
+YY_RULE_SETUP
+#line 32 ".\\question_09.l"
+{ BEGIN STATE_A; }
+	YY_BREAK
+case 15:
+YY_RULE_SETUP
+#line 33 ".\\question_09.l"
+{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
+	YY_BREAK
+case 16:
+YY_RULE_SETUP
+#line 34 ".\\question_09.l"
+{ printf("Invalid character: %s\n", yytext); }
+	YY_BREAK
+case 17:
+YY_RULE_SETUP
+#line 36 ".\\question_09.l"
 ECHO;
 	YY_BREAK
-#line 619 "lex.yy.c"
+#line 708 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
+case YY_STATE_EOF(STATE_A):
+case YY_STATE_EOF(STATE_B):
+case YY_STATE_EOF(STATE_C):
 	yyterminate();
 
 	case YY_END_OF_BUFFER:
@@ -907,7 +999,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 9 )
+			if ( yy_current_state >= 27 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -942,11 +1034,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 9 )
+		if ( yy_current_state >= 27 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 8);
+	yy_is_jam = (yy_current_state == 26);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1501,34 +1593,12 @@ int main()
 	return 0;
 	}
 #endif
-#line 10 ".\\question_08.l"
+#line 36 ".\\question_09.l"
 
 
-int main(int argc, char **argv) {
-    if (argc != 3) {
-        printf("Usage: ./a.out <input.html> <output.txt>\n");
-        return 1;
-    }
-
-    yyin = fopen(argv[1], "r");
-    if (!yyin) {
-        printf("Error: Cannot open input file '%s'\n", argv[1]);
-        return 1;
-    }
-
-    yyout = fopen(argv[2], "w");
-    if (!yyout) {
-        printf("Error: Cannot create output file '%s'\n", argv[2]);
-        fclose(yyin);
-        return 1;
-    }
-
+int main() {
+    printf("Enter a string consisting of 'a' and 'b' (Press Enter to evaluate):\n");
     yylex();
-
-    printf("HTML tags extracted successfully! Check '%s'.\n", argv[2]);
-
-    fclose(yyin);
-    fclose(yyout);
     return 0;
 }
 
