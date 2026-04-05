@@ -1,3 +1,9 @@
+/*
+Design a DFA in LEX  code which accepts sring containig third last element 
+'a' over the input alphabet {a,b}.
+*/
+
+
 %{
 #include <stdio.h>
 %}
