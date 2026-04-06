@@ -282,33 +282,30 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 33
-#define YY_END_OF_BUFFER 34
-static yyconst short int yy_accept[51] =
+#define YY_NUM_RULES 6
+#define YY_END_OF_BUFFER 7
+static yyconst short int yy_accept[15] =
     {   0,
-        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,    0,    0,    0,    0,   34,    4,    3,    1,
-        2,    8,    7,    5,    6,   12,   11,    9,   10,   16,
-       15,   13,   14,   20,   19,   17,   18,   24,   23,   21,
-       22,   28,   27,   25,   26,   32,   31,   29,   30,    0
+        0,    0,    7,    5,    4,    4,    2,    3,    4,    0,
+        2,    3,    1,    0
     } ;
 
 static yyconst int yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    3,    4,    1,    1,
+        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    4,    1,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    1,    1,    1,
+        1,    1,    1,    1,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        1,    1,    1,    1,    1,    1,    6,    6,    6,    6,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -325,43 +322,33 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst int yy_meta[5] =
+static yyconst int yy_meta[7] =
     {   0,
-        1,    1,    1,    1
+        1,    2,    2,    1,    3,    1
     } ;
 
-static yyconst short int yy_base[51] =
+static yyconst short int yy_base[17] =
     {   0,
-        0,    0,    4,    0,    8,    0,   12,    0,   16,    0,
-       20,    0,   24,    0,   28,    0,   33,   34,   34,   34,
-       34,   34,   34,   34,   34,   34,   34,   34,   34,   34,
-       34,   34,   34,   34,   34,   34,   34,   34,   34,   34,
-       34,   34,   34,   34,   34,   34,   34,   34,   34,   34
+        0,    0,   13,   14,    0,    0,    3,    4,    0,    0,
+        0,    0,    0,   14,   10,    8
     } ;
 
-static yyconst short int yy_def[51] =
+static yyconst short int yy_def[17] =
     {   0,
-       50,    1,   50,    3,   50,    5,   50,    7,   50,    9,
-       50,   11,   50,   13,   50,   15,   50,   50,   50,   50,
-       50,   50,   50,   50,   50,   50,   50,   50,   50,   50,
-       50,   50,   50,   50,   50,   50,   50,   50,   50,   50,
-       50,   50,   50,   50,   50,   50,   50,   50,   50,    0
+       14,    1,   14,   14,   15,   15,   14,   14,   15,   16,
+        7,    8,   16,    0,   14,   14
     } ;
 
-static yyconst short int yy_nxt[39] =
+static yyconst short int yy_nxt[21] =
     {   0,
-       18,   19,   20,   21,   22,   23,   24,   25,   26,   27,
-       28,   29,   30,   31,   32,   33,   34,   35,   36,   37,
-       38,   39,   40,   41,   42,   43,   44,   45,   46,   47,
-       48,   49,   50,   17,   50,   50,   50,   50
+        4,    5,    6,    4,    7,    8,   10,   11,   12,   12,
+       13,    9,   14,    3,   14,   14,   14,   14,   14,   14
     } ;
 
-static yyconst short int yy_chk[39] =
+static yyconst short int yy_chk[21] =
     {   0,
-        1,    1,    1,    1,    3,    3,    3,    3,    5,    5,
-        5,    5,    7,    7,    7,    7,    9,    9,    9,    9,
-       11,   11,   11,   11,   13,   13,   13,   13,   15,   15,
-       15,   15,   17,   50,   50,   50,   50,   50
+        1,    1,    1,    1,    1,    1,    7,    7,    8,    8,
+       16,   15,    3,   14,   14,   14,   14,   14,   14,   14
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -375,26 +362,15 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 ".\\question_10.l"
+#line 1 ".\\question_11.l"
 #define INITIAL 0
-#line 2 ".\\question_10.l"
-#include <stdio.h>
-/* Define the 7 exclusive states (INITIAL acts as the 8th state: BBB) */
-#define BBA 1
-
-#define BAB 2
-
-#define BAA 3
-
-#define ABB 4
-
-#define ABA 5
-
-#define AAB 6
-
-#define AAA 7
-
-#line 398 "lex.yy.c"
+/*
+Design a DFA in LEX code to identify and print Integer & amp ; Float Constants 
+and Identfiers.
+*/
+#line 8 ".\\question_11.l"
+#include<stdio.h>
+#line 374 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -545,11 +521,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 14 ".\\question_10.l"
+#line 17 ".\\question_11.l"
 
 
-    /* Transitions from INITIAL (History: ...bbb) */
-#line 553 "lex.yy.c"
+#line 528 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -600,13 +575,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 51 )
+				if ( yy_current_state >= 15 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 34 );
+		while ( yy_base[yy_current_state] != 14 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -634,185 +609,36 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 17 ".\\question_10.l"
-{ BEGIN BBA; }
+#line 19 ".\\question_11.l"
+{ printf("Float Constant: %s\n", yytext); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 18 ".\\question_10.l"
-{ /* Stay in INITIAL */ }
+#line 21 ".\\question_11.l"
+{ printf("Integer Constant: %s\n", yytext); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 19 ".\\question_10.l"
-{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
+#line 23 ".\\question_11.l"
+{ printf("Identifier: %s\n", yytext); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 20 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
+#line 25 ".\\question_11.l"
+;  
 	YY_BREAK
-/* Transitions from BBA (History: ...bba) */
 case 5:
 YY_RULE_SETUP
-#line 23 ".\\question_10.l"
-{ BEGIN BAA; }
+#line 27 ".\\question_11.l"
+{ printf("Invalid: %s\n", yytext); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 24 ".\\question_10.l"
-{ BEGIN BAB; }
-	YY_BREAK
-case 7:
-YY_RULE_SETUP
-#line 25 ".\\question_10.l"
-{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 8:
-YY_RULE_SETUP
-#line 26 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-/* Transitions from BAB (History: ...bab) */
-case 9:
-YY_RULE_SETUP
-#line 29 ".\\question_10.l"
-{ BEGIN ABA; }
-	YY_BREAK
-case 10:
-YY_RULE_SETUP
-#line 30 ".\\question_10.l"
-{ BEGIN ABB; }
-	YY_BREAK
-case 11:
-YY_RULE_SETUP
-#line 31 ".\\question_10.l"
-{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 12:
-YY_RULE_SETUP
-#line 32 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-/* Transitions from BAA (History: ...baa) */
-case 13:
-YY_RULE_SETUP
-#line 35 ".\\question_10.l"
-{ BEGIN AAA; }
-	YY_BREAK
-case 14:
-YY_RULE_SETUP
-#line 36 ".\\question_10.l"
-{ BEGIN AAB; }
-	YY_BREAK
-case 15:
-YY_RULE_SETUP
-#line 37 ".\\question_10.l"
-{ printf("Result: String REJECTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 16:
-YY_RULE_SETUP
-#line 38 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-/* Transitions from ABB (History: ...abb) */
-case 17:
-YY_RULE_SETUP
-#line 41 ".\\question_10.l"
-{ BEGIN BBA; }
-	YY_BREAK
-case 18:
-YY_RULE_SETUP
-#line 42 ".\\question_10.l"
-{ BEGIN INITIAL; } /* Back to BBB */
-	YY_BREAK
-case 19:
-YY_RULE_SETUP
-#line 43 ".\\question_10.l"
-{ printf("Result: String ACCEPTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 20:
-YY_RULE_SETUP
-#line 44 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-/* Transitions from ABA (History: ...aba) */
-case 21:
-YY_RULE_SETUP
-#line 47 ".\\question_10.l"
-{ BEGIN BAA; }
-	YY_BREAK
-case 22:
-YY_RULE_SETUP
-#line 48 ".\\question_10.l"
-{ BEGIN BAB; }
-	YY_BREAK
-case 23:
-YY_RULE_SETUP
-#line 49 ".\\question_10.l"
-{ printf("Result: String ACCEPTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 24:
-YY_RULE_SETUP
-#line 50 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-/* Transitions from AAB (History: ...aab) */
-case 25:
-YY_RULE_SETUP
-#line 53 ".\\question_10.l"
-{ BEGIN ABA; }
-	YY_BREAK
-case 26:
-YY_RULE_SETUP
-#line 54 ".\\question_10.l"
-{ BEGIN ABB; }
-	YY_BREAK
-case 27:
-YY_RULE_SETUP
-#line 55 ".\\question_10.l"
-{ printf("Result: String ACCEPTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 28:
-YY_RULE_SETUP
-#line 56 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-/* Transitions from AAA (History: ...aaa) */
-case 29:
-YY_RULE_SETUP
-#line 59 ".\\question_10.l"
-{ BEGIN AAA; }
-	YY_BREAK
-case 30:
-YY_RULE_SETUP
-#line 60 ".\\question_10.l"
-{ BEGIN AAB; }
-	YY_BREAK
-case 31:
-YY_RULE_SETUP
-#line 61 ".\\question_10.l"
-{ printf("Result: String ACCEPTED\n\n"); BEGIN INITIAL; }
-	YY_BREAK
-case 32:
-YY_RULE_SETUP
-#line 62 ".\\question_10.l"
-{ printf("Invalid character: %s\n", yytext); }
-	YY_BREAK
-case 33:
-YY_RULE_SETUP
-#line 64 ".\\question_10.l"
+#line 29 ".\\question_11.l"
 ECHO;
 	YY_BREAK
-#line 808 "lex.yy.c"
+#line 641 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
-case YY_STATE_EOF(BBA):
-case YY_STATE_EOF(BAB):
-case YY_STATE_EOF(BAA):
-case YY_STATE_EOF(ABB):
-case YY_STATE_EOF(ABA):
-case YY_STATE_EOF(AAB):
-case YY_STATE_EOF(AAA):
 	yyterminate();
 
 	case YY_END_OF_BUFFER:
@@ -1103,7 +929,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 51 )
+			if ( yy_current_state >= 15 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1138,11 +964,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 51 )
+		if ( yy_current_state >= 15 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 50);
+	yy_is_jam = (yy_current_state == 14);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1697,15 +1523,17 @@ int main()
 	return 0;
 	}
 #endif
-#line 64 ".\\question_10.l"
+#line 29 ".\\question_11.l"
 
 
-int main() {
-    printf("Enter a string consisting of 'a' and 'b' (Press Enter to evaluate):\n");
+int main()
+{
+    printf("Enter Input:\n");
     yylex();
     return 0;
 }
 
-int yywrap() {
+int yywrap()
+{
     return 1;
 }
