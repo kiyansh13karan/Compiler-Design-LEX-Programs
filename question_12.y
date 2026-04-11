@@ -1,40 +1,41 @@
-%{
-#include<stdio.h>
-#include<stdlib.h>
+/*
+Design YACC/LEX code to recognize valid arithmetic expression with operators +, -.* and /.
+*/
 
-void yyerror(char *s);
+%{
+#include <stdio.h>
+#include <stdlib.h>
+
 int yylex();
+void yyerror(const char *s);
 %}
 
-%token NUMBER ID
+%token NUMBER
+
+/* Operator Precedence and Associativity */
+%left '+' '-'
+%left '*' '/'
 
 %%
+/* Grammar Rules */
+start: expr { printf("\nResult: Valid Arithmetic Expression!\n"); return 0; }
+     ;
 
-E : E '+' T
-  | E '-' T
-  | T
-  ;
-
-T : T '*' F
-  | T '/' F
-  | F
-  ;
-
-F : '(' E ')'
-  | NUMBER
-  | ID
-  ;
-
+expr: expr '+' expr
+    | expr '-' expr
+    | expr '*' expr
+    | expr '/' expr
+    | '(' expr ')'
+    | NUMBER
+    ;
 %%
 
-int main()
-{
-printf("Enter Arithmetic Expression:\n");
-yyparse();
-return 0;
+void yyerror(const char *s) {
+    printf("\nResult: Invalid Arithmetic Expression!\n");
 }
 
-void yyerror(char *s)
-{
-printf("Invalid Expression\n");
+int main() {
+    printf("Enter an arithmetic expression: ");
+    yyparse();
+    return 0;
 }

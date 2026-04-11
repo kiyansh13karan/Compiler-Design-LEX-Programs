@@ -69,11 +69,11 @@
 /* First part of user prologue.  */
 #line 1 "question_13_with_operator_precedence.y"
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int yylex();
-void yyerror(char *s);
+void yyerror(const char *s);
 
 #line 79 "question_13_with_operator_precedence.tab.c"
 
@@ -114,7 +114,7 @@ enum yysymbol_kind_t
   YYSYMBOL_8_ = 8,                         /* '('  */
   YYSYMBOL_9_ = 9,                         /* ')'  */
   YYSYMBOL_YYACCEPT = 10,                  /* $accept  */
-  YYSYMBOL_S = 11,                         /* S  */
+  YYSYMBOL_start = 11,                     /* start  */
   YYSYMBOL_E = 12                          /* E  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
@@ -501,7 +501,7 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    16,    16,    19,    20,    21,    22,    23,    24
+       0,    17,    17,    20,    21,    22,    23,    30,    31
 };
 #endif
 
@@ -518,7 +518,7 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "NUMBER", "'+'", "'-'",
-  "'*'", "'/'", "'('", "')'", "$accept", "S", "E", YY_NULLPTR
+  "'*'", "'/'", "'('", "')'", "$accept", "start", "E", YY_NULLPTR
 };
 
 static const char *
@@ -1062,50 +1062,56 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* S: E  */
-#line 16 "question_13_with_operator_precedence.y"
-      { printf("Result = %d\n", yyvsp[0]); }
+  case 2: /* start: E  */
+#line 17 "question_13_with_operator_precedence.y"
+         { printf("\nResult: %d\n", yyvsp[0]); return 0; }
 #line 1069 "question_13_with_operator_precedence.tab.c"
     break;
 
   case 3: /* E: E '+' E  */
-#line 19 "question_13_with_operator_precedence.y"
-              { yyval = yyvsp[-2] + yyvsp[0]; }
+#line 20 "question_13_with_operator_precedence.y"
+            { yyval = yyvsp[-2] + yyvsp[0]; }
 #line 1075 "question_13_with_operator_precedence.tab.c"
     break;
 
   case 4: /* E: E '-' E  */
-#line 20 "question_13_with_operator_precedence.y"
-              { yyval = yyvsp[-2] - yyvsp[0]; }
+#line 21 "question_13_with_operator_precedence.y"
+            { yyval = yyvsp[-2] - yyvsp[0]; }
 #line 1081 "question_13_with_operator_precedence.tab.c"
     break;
 
   case 5: /* E: E '*' E  */
-#line 21 "question_13_with_operator_precedence.y"
-              { yyval = yyvsp[-2] * yyvsp[0]; }
+#line 22 "question_13_with_operator_precedence.y"
+            { yyval = yyvsp[-2] * yyvsp[0]; }
 #line 1087 "question_13_with_operator_precedence.tab.c"
     break;
 
   case 6: /* E: E '/' E  */
-#line 22 "question_13_with_operator_precedence.y"
-              { yyval = yyvsp[-2] / yyvsp[0]; }
-#line 1093 "question_13_with_operator_precedence.tab.c"
-    break;
-
-  case 7: /* E: '(' E ')'  */
 #line 23 "question_13_with_operator_precedence.y"
-              { yyval = yyvsp[-1]; }
+            { 
+        if(yyvsp[0] == 0) { 
+            yyerror("Divide by zero error!"); 
+            exit(0); 
+        } 
+        else { yyval = yyvsp[-2] / yyvsp[0]; } 
+    }
 #line 1099 "question_13_with_operator_precedence.tab.c"
     break;
 
-  case 8: /* E: NUMBER  */
-#line 24 "question_13_with_operator_precedence.y"
-              { yyval = yyvsp[0]; }
+  case 7: /* E: '(' E ')'  */
+#line 30 "question_13_with_operator_precedence.y"
+              { yyval = yyvsp[-1]; }
 #line 1105 "question_13_with_operator_precedence.tab.c"
     break;
 
+  case 8: /* E: NUMBER  */
+#line 31 "question_13_with_operator_precedence.y"
+              { yyval = yyvsp[0]; }
+#line 1111 "question_13_with_operator_precedence.tab.c"
+    break;
 
-#line 1109 "question_13_with_operator_precedence.tab.c"
+
+#line 1115 "question_13_with_operator_precedence.tab.c"
 
       default: break;
     }
@@ -1298,17 +1304,15 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 27 "question_13_with_operator_precedence.y"
+#line 33 "question_13_with_operator_precedence.y"
 
 
-int main()
-{
-printf("Enter Expression: ");
-yyparse();
-return 0;
+void yyerror(const char *s) {
+    printf("\nError: Invalid Expression\n");
 }
 
-void yyerror(char *s)
-{
-printf("Invalid Expression\n");
+int main() {
+    printf("Enter Arithmetic Expression (With Precedence Rules): ");
+    yyparse();
+    return 0;
 }

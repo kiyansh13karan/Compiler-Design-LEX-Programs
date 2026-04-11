@@ -69,11 +69,11 @@
 /* First part of user prologue.  */
 #line 1 "question_13_without_operator_precedence.y"
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int yylex();
-void yyerror(char *s);
+void yyerror(const char *s);
 
 #line 79 "question_13_without_operator_precedence.tab.c"
 
@@ -114,8 +114,10 @@ enum yysymbol_kind_t
   YYSYMBOL_8_ = 8,                         /* '('  */
   YYSYMBOL_9_ = 9,                         /* ')'  */
   YYSYMBOL_YYACCEPT = 10,                  /* $accept  */
-  YYSYMBOL_S = 11,                         /* S  */
-  YYSYMBOL_E = 12                          /* E  */
+  YYSYMBOL_start = 11,                     /* start  */
+  YYSYMBOL_E = 12,                         /* E  */
+  YYSYMBOL_T = 13,                         /* T  */
+  YYSYMBOL_F = 14                          /* F  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -441,18 +443,18 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  6
+#define YYFINAL  8
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   18
+#define YYLAST   14
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  10
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  3
+#define YYNNTS  5
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  8
+#define YYNRULES  10
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  16
+#define YYNSTATES  18
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   258
@@ -501,7 +503,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    13,    13,    16,    17,    18,    19,    20,    21
+       0,    13,    13,    16,    17,    18,    21,    22,    29,    32,
+      33
 };
 #endif
 
@@ -518,7 +521,7 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "NUMBER", "'+'", "'-'",
-  "'*'", "'/'", "'('", "')'", "$accept", "S", "E", YY_NULLPTR
+  "'*'", "'/'", "'('", "')'", "$accept", "start", "E", "T", "F", YY_NULLPTR
 };
 
 static const char *
@@ -528,7 +531,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-4)
+#define YYPACT_NINF (-5)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -542,8 +545,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      10,    -4,    10,    15,    -3,     5,    -4,    10,    10,    10,
-      10,    -4,    -3,    -3,    -3,    -3
+      -1,    -5,    -1,     6,     4,    -3,    -5,    -4,    -5,    -1,
+      -1,    -1,    -1,    -5,    -3,    -3,    -5,    -5
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -551,20 +554,20 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     8,     0,     0,     2,     0,     1,     0,     0,     0,
-       0,     7,     3,     4,     5,     6
+       0,    10,     0,     0,     2,     5,     8,     0,     1,     0,
+       0,     0,     0,     9,     3,     4,     6,     7
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,    -4,    -2
+      -5,    -5,    10,     1,     2
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4
+       0,     3,     4,     5,     6
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -572,34 +575,36 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       5,     7,     8,     9,    10,    12,    13,    14,    15,     7,
-       8,     9,    10,     1,    11,     6,     0,     0,     2
+       9,    10,     1,    11,    12,    13,     8,     2,     9,    10,
+      14,    15,     7,    16,    17
 };
 
 static const yytype_int8 yycheck[] =
 {
-       2,     4,     5,     6,     7,     7,     8,     9,    10,     4,
-       5,     6,     7,     3,     9,     0,    -1,    -1,     8
+       4,     5,     3,     6,     7,     9,     0,     8,     4,     5,
+       9,    10,     2,    11,    12
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     8,    11,    12,    12,     0,     4,     5,     6,
-       7,     9,    12,    12,    12,    12
+       0,     3,     8,    11,    12,    13,    14,    12,     0,     4,
+       5,     6,     7,     9,    13,    13,    14,    14
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    10,    11,    12,    12,    12,    12,    12,    12
+       0,    10,    11,    12,    12,    12,    13,    13,    13,    14,
+      14
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     3,     3,     3,     3,     3,     1
+       0,     2,     1,     3,     3,     1,     3,     3,     1,     3,
+       1
 };
 
 
@@ -1062,50 +1067,68 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* S: E  */
+  case 2: /* start: E  */
 #line 13 "question_13_without_operator_precedence.y"
-      { printf("Result = %d\n", yyvsp[0]); }
-#line 1069 "question_13_without_operator_precedence.tab.c"
+         { printf("\nResult: %d\n", yyvsp[0]); return 0; }
+#line 1074 "question_13_without_operator_precedence.tab.c"
     break;
 
-  case 3: /* E: E '+' E  */
+  case 3: /* E: E '+' T  */
 #line 16 "question_13_without_operator_precedence.y"
-              { yyval = yyvsp[-2] + yyvsp[0]; }
-#line 1075 "question_13_without_operator_precedence.tab.c"
+            { yyval = yyvsp[-2] + yyvsp[0]; }
+#line 1080 "question_13_without_operator_precedence.tab.c"
     break;
 
-  case 4: /* E: E '-' E  */
+  case 4: /* E: E '-' T  */
 #line 17 "question_13_without_operator_precedence.y"
-              { yyval = yyvsp[-2] - yyvsp[0]; }
-#line 1081 "question_13_without_operator_precedence.tab.c"
+            { yyval = yyvsp[-2] - yyvsp[0]; }
+#line 1086 "question_13_without_operator_precedence.tab.c"
     break;
 
-  case 5: /* E: E '*' E  */
+  case 5: /* E: T  */
 #line 18 "question_13_without_operator_precedence.y"
-              { yyval = yyvsp[-2] * yyvsp[0]; }
-#line 1087 "question_13_without_operator_precedence.tab.c"
+            { yyval = yyvsp[0]; }
+#line 1092 "question_13_without_operator_precedence.tab.c"
     break;
 
-  case 6: /* E: E '/' E  */
-#line 19 "question_13_without_operator_precedence.y"
-              { yyval = yyvsp[-2] / yyvsp[0]; }
-#line 1093 "question_13_without_operator_precedence.tab.c"
-    break;
-
-  case 7: /* E: '(' E ')'  */
-#line 20 "question_13_without_operator_precedence.y"
-              { yyval = yyvsp[-1]; }
-#line 1099 "question_13_without_operator_precedence.tab.c"
-    break;
-
-  case 8: /* E: NUMBER  */
+  case 6: /* T: T '*' F  */
 #line 21 "question_13_without_operator_precedence.y"
+            { yyval = yyvsp[-2] * yyvsp[0]; }
+#line 1098 "question_13_without_operator_precedence.tab.c"
+    break;
+
+  case 7: /* T: T '/' F  */
+#line 22 "question_13_without_operator_precedence.y"
+            { 
+        if(yyvsp[0] == 0) { 
+            yyerror("Divide by zero error!"); 
+            exit(0); 
+        } 
+        else { yyval = yyvsp[-2] / yyvsp[0]; } 
+    }
+#line 1110 "question_13_without_operator_precedence.tab.c"
+    break;
+
+  case 8: /* T: F  */
+#line 29 "question_13_without_operator_precedence.y"
+            { yyval = yyvsp[0]; }
+#line 1116 "question_13_without_operator_precedence.tab.c"
+    break;
+
+  case 9: /* F: '(' E ')'  */
+#line 32 "question_13_without_operator_precedence.y"
+              { yyval = yyvsp[-1]; }
+#line 1122 "question_13_without_operator_precedence.tab.c"
+    break;
+
+  case 10: /* F: NUMBER  */
+#line 33 "question_13_without_operator_precedence.y"
               { yyval = yyvsp[0]; }
-#line 1105 "question_13_without_operator_precedence.tab.c"
+#line 1128 "question_13_without_operator_precedence.tab.c"
     break;
 
 
-#line 1109 "question_13_without_operator_precedence.tab.c"
+#line 1132 "question_13_without_operator_precedence.tab.c"
 
       default: break;
     }
@@ -1298,17 +1321,15 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 24 "question_13_without_operator_precedence.y"
+#line 35 "question_13_without_operator_precedence.y"
 
 
-int main()
-{
-printf("Enter Expression: ");
-yyparse();
-return 0;
+void yyerror(const char *s) {
+    printf("\nError: Invalid Expression\n");
 }
 
-void yyerror(char *s)
-{
-printf("Invalid Expression\n");
+int main() {
+    printf("Enter Arithmetic Expression (Without Precedence Rules): ");
+    yyparse();
+    return 0;
 }
